@@ -90,5 +90,11 @@ namespace bevasarrlolista
         {
             dataGrid.ItemsSource = termekek.OrderByDescending(item => item.Összesen).Take(5);
         }
+
+        private void MennyisegNagyobbMint1(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => item.Mennyiség > 1);
+
+        }
     }
 }

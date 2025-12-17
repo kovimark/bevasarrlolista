@@ -20,6 +20,7 @@
                     <Button Content="Törlés" Width="150" Margin="10" Click="delete"></Button>
                     <Button Content="A típus 3 legdrágább" Width="150" Margin="10" Click="aTipusHaromLegdragabb"></Button>
                     <Button Content="Top 5 összérték szerint" Width="150" Margin="10" Click="TopOtOsszertek"></Button>
+                    <Button Content="Menyniség nagyobb mint 1" Width="150" Margin="10" Click="MennyisegNagyobbMint1"></Button>
 
                 </WrapPanel>
             </GroupBox>
