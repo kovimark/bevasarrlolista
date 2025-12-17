@@ -96,5 +96,16 @@ namespace bevasarrlolista
             dataGrid.ItemsSource = termekek.Where(item => item.Mennyiség > 1);
 
         }
+
+        private void Reset(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek;
+        }
+
+        private void ArSzerintCsokkeno(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource=termekek.OrderByDescending(item => item.Ár);
+
+        }
     }
 }

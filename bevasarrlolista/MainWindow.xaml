@@ -15,12 +15,14 @@
         <ScrollViewer Grid.Row="1">
             <GroupBox Grid.Row="1" Margin="10" Header="Termékek">
                 <WrapPanel Grid.Row="1">
-                    
+                    <Button Content="Reset" Width="150" Margin="10" Click="Reset"></Button>
                     <Button Content="Hozzáadás" Width="150" Margin="10" Click="addWindow"></Button>
                     <Button Content="Törlés" Width="150" Margin="10" Click="delete"></Button>
                     <Button Content="A típus 3 legdrágább" Width="150" Margin="10" Click="aTipusHaromLegdragabb"></Button>
                     <Button Content="Top 5 összérték szerint" Width="150" Margin="10" Click="TopOtOsszertek"></Button>
                     <Button Content="Menyniség nagyobb mint 1" Width="150" Margin="10" Click="MennyisegNagyobbMint1"></Button>
+                    <Button Content="ArSzerintCsokkeno" Width="150" Margin="10" Click="ArSzerintCsokkeno"></Button>
+                    
 
                 </WrapPanel>
             </GroupBox>
