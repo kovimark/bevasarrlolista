@@ -120,7 +120,6 @@ namespace bevasarrlolista
 
         private void TipusDarabPluszOsszertek(object sender, RoutedEventArgs e)
         {
-
             dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, Darab = g.Count(), Osszertek = g.Sum(item => item.Összesen) });
         }
 
@@ -132,13 +131,41 @@ namespace bevasarrlolista
         private void LegnagyobbOsszertekKategoriankent(object sender, RoutedEventArgs e)
         {
             dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, LegnagyobbOsszertek = g.Max(item => item.Összesen) });
-
         }
 
         private void BEsCTipus1000NelKisebb(object sender, RoutedEventArgs e)
         {
             dataGrid.ItemsSource = termekek.Where(item => (item.Tipus == "B" || item.Tipus == "C") && item.Összesen < 1000);
+        }
 
+        private void nagyobbMint10dbEsKisebbMint1000Ft(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => item.Mennyiség > 10 && item.Ár < 1000);
+        }
+
+        private void DTipusNAgyobbMint500FtMindenEgysegAr(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => item.Tipus == "D" && item.Összesen > 500).Select(item => new { Nev = item.Név, EgysegAr = item.Ár });
+        }
+
+        private void OsszertekNagyobbMint2000ABCTipus(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => (item.Tipus == "A" || item.Tipus == "B" || item.Tipus == "C") && item.Összesen > 2000);
+        }
+
+        private void TermekNevPluszTipus(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Select(item => new { Nev = item.Név, Tipus = item.Tipus });
+        }
+
+        private void LegertekesebbTermekTipusonkentTipusTermekEgysegar(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => g.OrderByDescending(item => item.Ár).First()).Select(item => new { Tipus = item.Tipus, Nev = item.Név, EgysegAr = item.Ár });
+        }
+
+        private void OsszesDarabszamTipusonkent(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, OsszesDarab = g.Sum(item => item.Mennyiség) });
         }
     }
 }

@@ -15,19 +15,25 @@
         <ScrollViewer Grid.Row="1">
             <GroupBox Grid.Row="1" Margin="10" Header="Termékek">
                 <WrapPanel Grid.Row="1">
-                    <Button Content="Reset" Width="150" Margin="10" Click="Reset"></Button>
-                    <Button Content="Hozzáadás" Width="150" Margin="10" Click="addWindow"></Button>
-                    <Button Content="Törlés" Width="150" Margin="10" Click="delete"></Button>
-                    <Button Content="A típus 3 legdrágább" Width="150" Margin="10" Click="aTipusHaromLegdragabb"></Button>
-                    <Button Content="Top 5 összérték szerint" Width="150" Margin="10" Click="TopOtOsszertek"></Button>
-                    <Button Content="Menyniség nagyobb mint 1" Width="150" Margin="10" Click="MennyisegNagyobbMint1"></Button>
-                    <Button Content="ArSzerintCsokkeno" Width="150" Margin="10" Click="ArSzerintCsokkeno"></Button>
-                    <Button Content="MindenDAmiTobbMint500" Width="150" Margin="10" Click="MindenDAmiTobbMint500"></Button>
-                    <Button Content="NevPluszOsszertekABC" Width="150" Margin="10" Click="NevPluszOsszertekABC"></Button>
-                    <Button Content="TipusDarabPluszOsszertek" Width="150" Margin="10" Click="TipusDarabPluszOsszertek"></Button>
-                    <Button Content="TipusAtlagar" Width="150" Margin="10" Click="TipusAtlagar"></Button>
-                    <Button Content="LegnagyobbOsszertekKategoriankent" Width="150" Margin="10" Click="LegnagyobbOsszertekKategoriankent"></Button>
-                    <Button Content="BEsCTipus1000NelKisebb" Width="150" Margin="10" Click="BEsCTipus1000NelKisebb"></Button>
+                    <Button Content="Reset"   Margin="10" Click="Reset"></Button>
+                    <Button Content="Hozzáadás"   Margin="10" Click="addWindow"></Button>
+                    <Button Content="Törlés"   Margin="10" Click="delete"></Button>
+                    <Button Content="A típus 3 legdrágább"   Margin="10" Click="aTipusHaromLegdragabb"></Button>
+                    <Button Content="Top 5 összérték szerint"   Margin="10" Click="TopOtOsszertek"></Button>
+                    <Button Content="Menyniség nagyobb mint 1"   Margin="10" Click="MennyisegNagyobbMint1"></Button>
+                    <Button Content="ArSzerintCsokkeno"   Margin="10" Click="ArSzerintCsokkeno"></Button>
+                    <Button Content="MindenDAmiTobbMint500"   Margin="10" Click="MindenDAmiTobbMint500"></Button>
+                    <Button Content="NevPluszOsszertekABC"   Margin="10" Click="NevPluszOsszertekABC"></Button>
+                    <Button Content="TipusDarabPluszOsszertek"   Margin="10" Click="TipusDarabPluszOsszertek"></Button>
+                    <Button Content="TipusAtlagar"   Margin="10" Click="TipusAtlagar"></Button>
+                    <Button Content="LegnagyobbOsszertekKategoriankent"   Margin="10" Click="LegnagyobbOsszertekKategoriankent"></Button>
+                    <Button Content="BEsCTipus1000NelKisebb"   Margin="10" Click="BEsCTipus1000NelKisebb"></Button>
+                    <Button Content="DTipusNAgyobbMint500FtMindenEgysegAr"   Margin="10" Click="DTipusNAgyobbMint500FtMindenEgysegAr"></Button>
+                    <Button Content="nagyobbMint10dbEsKisebbMint1000Ft"   Margin="10" Click="nagyobbMint10dbEsKisebbMint1000Ft"></Button>
+                    <Button Content="OsszertekNagyobbMint2000ABCTipus"  Margin="10" Click="OsszertekNagyobbMint2000ABCTipus"></Button>
+                    <Button Content="TermekNevPluszTipus"  Margin="10" Click="TermekNevPluszTipus"></Button>
+                    <Button Content="LegertekesebbTermekTipusonkentTipusTermekEgysegar"  Margin="10" Click="LegertekesebbTermekTipusonkentTipusTermekEgysegar"></Button>
+                    <Button Content="OsszesDarabszamTipusonkent"  Margin="10" Click="OsszesDarabszamTipusonkent"></Button>
                     
 
                 </WrapPanel>
