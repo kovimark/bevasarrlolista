@@ -210,6 +210,38 @@ namespace bevasarrlolista
                 .GroupBy(t => t.Név)
                 .Where(t => t.Count() > 1)
                 .SelectMany(t => t);
-        }   
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (dataGrid.SelectedItem is ItemModel selectedItem)
+            {
+
+                priceProgressBar.Value = selectedItem.Ár;
+            }
+        }
+
+        private void nemc(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Tipus != "C");
+        }
+
+        private void nevHosszSzerint(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderBy(x => x.Név.Length);
+        }
+
+        private void aTipusOsszAr(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek
+                .Where(t => t.Tipus == "A")
+                .OrderBy(t => t.Név)
+                .Select(t => new
+                {
+                    Kategória = t.Tipus,
+                    Név = t.Név,
+                    Összes = t.Összesen
+                });
+        }
     }
 }

@@ -40,6 +40,9 @@
                     <TextBox x:Name="textBox" Width="150" Margin="5" TextChanged="Valtozas"></TextBox>
                     <Button Content="Egyező termékek" Width="150" Margin="5" Click="egyezo"/>
                     <ProgressBar x:Name="priceProgressBar" Width="100" Height="20" Margin="10" Value="0"/>
+                    <Button Content="Nem C kategóriás" Width="150" Margin="5" Click="nemc"/>
+                    <Button Content="Név hossz szerinti termékek" Width="150" Margin="5" Click="nevHosszSzerint"/>
+                    <Button Content="A tipus Össz ár" Width="150" Margin="5" Click="aTipusOsszAr"/>
                     
 
                 </WrapPanel>
