@@ -23,36 +23,38 @@ namespace bevasarrlolista
             public int Ár { get; set; }
             public string Tipus { get; set; }
 
-            public int Összesen { get; set; }
+                public int Összesen { get; set; }
 
-            public ItemModel(string név, int mennyiség, int ár, string tipus)
-            {
-                Név = név;
-                Mennyiség = mennyiség;
-                Ár = ár;
-                Tipus = tipus;
-                Összesen = mennyiség * ár;
+                public ItemModel(string név, int mennyiség, int ár, string tipus)
+                {
+                    Név = név;
+                    Mennyiség = mennyiség;
+                    Ár = ár;
+                    Tipus = tipus;
+                    Összesen = mennyiség * ár;
+                }
             }
-        }
-    public partial class MainWindow : Window
-    {
-
-        List<ItemModel> termekek = new List<ItemModel>();
-
-        public MainWindow()
+        public partial class MainWindow : Window
         {
-            InitializeComponent();
-            termekek.Add(new ItemModel("Tej", 5, 450, "A"));
-            termekek.Add(new ItemModel("Kenyer", 10, 350, "B"));
-            termekek.Add(new ItemModel("Sajt", 2, 1200, "A"));
-            termekek.Add(new ItemModel("Alma", 20, 200, "C"));
-            termekek.Add(new ItemModel("Narancs", 15, 300, "C"));
-            termekek.Add(new ItemModel("Hús", 3, 2500, "D"));
-            termekek.Add(new ItemModel("Csokoládé", 7, 900, "B"));
-            termekek.Add(new ItemModel("Kenyér", 1, 450, "B"));
-            termekek.Add(new ItemModel("Tej", 12, 400, "A"));
-            termekek.Add(new ItemModel("Sajt", 5, 1500, "D"));
-            dataGrid.ItemsSource = termekek;
+
+            List<ItemModel> termekek = new List<ItemModel>();
+
+            public MainWindow()
+            {
+                InitializeComponent();
+                termekek.Add(new ItemModel("Tej", 5, 450, "A"));
+                termekek.Add(new ItemModel("Kenyer", 10, 350, "B"));
+                termekek.Add(new ItemModel("Sajt", 2, 1200, "A"));
+                termekek.Add(new ItemModel("Alma", 20, 200, "C"));
+                termekek.Add(new ItemModel("Narancs", 15, 300, "C"));
+                termekek.Add(new ItemModel("Hús", 3, 2500, "D"));
+                termekek.Add(new ItemModel("Csokoládé", 7, 900, "B"));
+                termekek.Add(new ItemModel("Kenyér", 1, 450, "B"));
+                termekek.Add(new ItemModel("Tej", 12, 400, "A"));
+                termekek.Add(new ItemModel("Sajt", 5, 1500, "D"));
+                dataGrid.ItemsSource = termekek;
+                priceProgressBar.Minimum = termekek.Min(x => x.Ár);
+                priceProgressBar.Maximum = termekek.Max(x => x.Ár);
         }
 
         private void add(object sender, RoutedEventArgs e)
@@ -79,7 +81,7 @@ namespace bevasarrlolista
                 dataGrid.ItemsSource = termekek;
                 dataGrid.Items.Refresh();
             }
-        }
+        }   
 
         private void aTipusHaromLegdragabb(object sender, RoutedEventArgs e)
         {
@@ -172,5 +174,42 @@ namespace bevasarrlolista
         {
             dataGrid.ItemsSource = termekek.Where(item => item.Összesen == 0);
         }
+
+//((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((((()))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+
+        private void kenyerek(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(x => x.Név.Contains("Kenyer")).OrderByDescending(c => c.Ár);
+
+        }
+
+        private void egyezoAr(object sender, RoutedEventArgs e)
+        {
+            var egyformak = termekek.GroupBy(x => x.Ár)
+                .Select(g => new { darab = g.Count() })
+                .Any(z => z.darab > 1);
+
+            if (egyformak == true)
+            {
+                MessageBox.Show($"Van olyan adataink, amelyeknek megeggyezik az ára!");
+            }
+            else
+            {
+                MessageBox.Show($"Nincs olyan adat amely egy másik adat árával megeggyezne, mind egyedi");
+            }
+        }
+
+        private void Valtozas(object sender, TextChangedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(t => t.Név.ToLower().Contains(textBox.Text.ToLower())).ToList();
+        }
+
+        private void egyezo(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek
+                .GroupBy(t => t.Név)
+                .Where(t => t.Count() > 1)
+                .SelectMany(t => t);
+        }   
     }
 }

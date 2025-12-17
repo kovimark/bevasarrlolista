@@ -35,6 +35,11 @@
                     <Button Content="LegertekesebbTermekTipusonkentTipusTermekEgysegar"  Margin="10" Click="LegertekesebbTermekTipusonkentTipusTermekEgysegar"></Button>
                     <Button Content="OsszesDarabszamTipusonkent"  Margin="10" Click="OsszesDarabszamTipusonkent"></Button>
                     <Button Content="NullaForintosTermekek"  Margin="10" Click="NullaForintosTermekek"></Button>
+                    <Button Content="Csak kenyerek" Width="150" Margin="5" Click="kenyerek"/>
+                    <Button Content="Megegyező ár" Width="150" Margin="5" Click="egyezoAr" />
+                    <TextBox x:Name="textBox" Width="150" Margin="5" TextChanged="Valtozas"></TextBox>
+                    <Button Content="Egyező termékek" Width="150" Margin="5" Click="egyezo"/>
+                    <ProgressBar x:Name="priceProgressBar" Width="100" Height="20" Margin="10" Value="0"/>
                     
 
                 </WrapPanel>
