@@ -23,6 +23,11 @@
                     <Button Content="Menyniség nagyobb mint 1" Width="150" Margin="10" Click="MennyisegNagyobbMint1"></Button>
                     <Button Content="ArSzerintCsokkeno" Width="150" Margin="10" Click="ArSzerintCsokkeno"></Button>
                     <Button Content="MindenDAmiTobbMint500" Width="150" Margin="10" Click="MindenDAmiTobbMint500"></Button>
+                    <Button Content="NevPluszOsszertekABC" Width="150" Margin="10" Click="NevPluszOsszertekABC"></Button>
+                    <Button Content="TipusDarabPluszOsszertek" Width="150" Margin="10" Click="TipusDarabPluszOsszertek"></Button>
+                    <Button Content="TipusAtlagar" Width="150" Margin="10" Click="TipusAtlagar"></Button>
+                    <Button Content="LegnagyobbOsszertekKategoriankent" Width="150" Margin="10" Click="LegnagyobbOsszertekKategoriankent"></Button>
+                    <Button Content="BEsCTipus1000NelKisebb" Width="150" Margin="10" Click="BEsCTipus1000NelKisebb"></Button>
                     
 
                 </WrapPanel>

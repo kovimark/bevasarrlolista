@@ -112,5 +112,33 @@ namespace bevasarrlolista
         {
            dataGrid.ItemsSource = termekek.Where(item => item.Tipus == "D" && item.Összesen > 500);
         }
+
+        private void NevPluszOsszertekABC(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderBy(item => item.Név).Select(item => new { Nev = item.Név, Ar = item.Összesen });
+        }
+
+        private void TipusDarabPluszOsszertek(object sender, RoutedEventArgs e)
+        {
+
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, Darab = g.Count(), Osszertek = g.Sum(item => item.Összesen) });
+        }
+
+        private void TipusAtlagar(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, AtlagAr = (int) (g.Average(item => item.Összesen))});
+        }
+
+        private void LegnagyobbOsszertekKategoriankent(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, LegnagyobbOsszertek = g.Max(item => item.Összesen) });
+
+        }
+
+        private void BEsCTipus1000NelKisebb(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => (item.Tipus == "B" || item.Tipus == "C") && item.Összesen < 1000);
+
+        }
     }
 }
