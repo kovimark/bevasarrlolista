@@ -55,5 +55,15 @@ namespace bevasarrlolista
             dataGrid.ItemsSource = termekek;
         }
 
+        private void add(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void addWindow(object sender, RoutedEventArgs e)
+        {
+            var ablak = new Hozzaadas();
+            ablak.ShowDialog();
+        }
     }
 }
