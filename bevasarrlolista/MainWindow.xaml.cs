@@ -107,5 +107,10 @@ namespace bevasarrlolista
             dataGrid.ItemsSource=termekek.OrderByDescending(item => item.Ár);
 
         }
+
+        private void MindenDAmiTobbMint500(object sender, RoutedEventArgs e)
+        {
+           dataGrid.ItemsSource = termekek.Where(item => item.Tipus == "D" && item.Összesen > 500);
+        }
     }
 }
