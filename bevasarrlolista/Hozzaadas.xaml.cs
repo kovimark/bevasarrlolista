@@ -19,9 +19,32 @@ namespace bevasarrlolista
     /// </summary>
     public partial class Hozzaadas : Window
     {
+
+        public ItemModel ujTermek;
         public Hozzaadas()
         {
             InitializeComponent();
+        }
+
+        private void okkeButton(object sender, RoutedEventArgs e)
+        {
+            int Mennyiseg_;
+            int EgysegAr_;
+            if (Nev.Text == "" || !int.TryParse(Mennyiseg.Text, out Mennyiseg_) || !int.TryParse(Egysegar.Text, out EgysegAr_) || Tipus.SelectedItem == null)
+            {
+                MessageBox.Show("Minden adatot adjon meg!", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                ujTermek = new ItemModel(Nev.Text, int.Parse(Mennyiseg.Text), int.Parse(Egysegar.Text), Tipus.Text);
+                DialogResult = true;
+            }
+
+
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

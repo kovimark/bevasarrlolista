@@ -16,7 +16,7 @@ namespace bevasarrlolista
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-     class ItemModel
+     public class ItemModel
         {
             public string Név { get; set; }
             public int Mennyiség { get; set; }
@@ -62,8 +62,33 @@ namespace bevasarrlolista
 
         private void addWindow(object sender, RoutedEventArgs e)
         {
-            var ablak = new Hozzaadas();
-            ablak.ShowDialog();
+            var ujTermek = new Hozzaadas();
+            if (ujTermek.ShowDialog()==true)
+            {
+                termekek.Add(ujTermek.ujTermek);
+                dataGrid.ItemsSource = termekek;
+                dataGrid.Items.Refresh();
+            }
+        }
+
+        private void delete(object sender, RoutedEventArgs e)
+        {
+            if (dataGrid.SelectedItem!=null)
+            {
+                termekek.Remove((ItemModel)dataGrid.SelectedItem);
+                dataGrid.ItemsSource = termekek;
+                dataGrid.Items.Refresh();
+            }
+        }
+
+        private void aTipusHaromLegdragabb(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => item.Tipus == "A").OrderByDescending(item => item.Összesen).Take(3);
+        }
+
+        private void TopOtOsszertek(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.OrderByDescending(item => item.Összesen).Take(5);
         }
     }
 }

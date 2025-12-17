@@ -16,24 +16,24 @@
         </Grid.RowDefinitions>
         
         <Label Grid.Row="0" Content="Termék:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Width="150" Grid.Row="0" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
+        <TextBox x:Name="Nev" Width="150" Grid.Row="0" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
 
         <Label Grid.Row="1" Content="Mennyiség:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Width="150" Grid.Row="1" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
+        <TextBox x:Name="Mennyiseg" Width="150" Grid.Row="1" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
 
         <Label Grid.Row="2" Content="Egységár:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <TextBox Width="150" Grid.Row="2" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
+        <TextBox x:Name="Egysegar" Width="150" Grid.Row="2" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center"></TextBox>
 
         <Label Grid.Row="3" Content="Típus:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
-        <ComboBox Width="150" Grid.Row="3" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center">
+        <ComboBox Name="Tipus" Width="150" Grid.Row="3" Height="20" HorizontalAlignment="Right" Margin="10" VerticalAlignment="Center">
             <ComboBoxItem Content="A"/>
             <ComboBoxItem Content="B"/>
             <ComboBoxItem Content="C"/>
             <ComboBoxItem Content="D"/>
         </ComboBox>
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-            <Button Content="Ok" Width="80" Height="30" Margin="5"></Button>
-            <Button Content="Mégse" Width="80" Height="30" Margin="5"></Button>
+            <Button Content="Ok" Width="80" Height="30" Margin="5" Click="okkeButton"></Button>
+            <Button Content="Mégse" Width="80" Height="30" Margin="5" Click="Button_Click"></Button>
             
         </StackPanel>
 
