@@ -160,12 +160,17 @@ namespace bevasarrlolista
 
         private void LegertekesebbTermekTipusonkentTipusTermekEgysegar(object sender, RoutedEventArgs e)
         {
-            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => g.OrderByDescending(item => item.Ár).First()).Select(item => new { Tipus = item.Tipus, Nev = item.Név, EgysegAr = item.Ár });
+            dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => g.OrderByDescending(item => item.Ár).First()).Select(item => new {item.Tipus,  item.Név, EgysegAr = item.Ár });
         }
 
         private void OsszesDarabszamTipusonkent(object sender, RoutedEventArgs e)
         {
             dataGrid.ItemsSource = termekek.GroupBy(item => item.Tipus).Select(g => new { Tipus = g.Key, OsszesDarab = g.Sum(item => item.Mennyiség) });
+        }
+
+        private void NullaForintosTermekek(object sender, RoutedEventArgs e)
+        {
+            dataGrid.ItemsSource = termekek.Where(item => item.Összesen == 0);
         }
     }
 }
